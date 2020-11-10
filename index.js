@@ -8,6 +8,9 @@ const bot = require('./bot')
 const db = require('./database')
 const commands = require('./commands')
 const {
+  errorHandler
+} = require('./helpers')
+const {
   URL,
   PORT
 } = process.env

@@ -12,7 +12,8 @@ module.exports = (
   let cursor = 0
   let match
   const add = (line, js) => {
-    js ? (code += line.match(reExp) ? `${line} ` : `r.push(${line});`)
+    js
+      ? (code += line.match(reExp) ? `${line} ` : `r.push(${line});`)
       : (code += line !== '' ? `r.push("${line.replace(/"/g, '\\\\"')}"); ` : '')
     return add
   }

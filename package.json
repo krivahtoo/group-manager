@@ -13,7 +13,8 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "debug": "^4.2.0",
@@ -32,6 +33,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.1.0",

@@ -5,7 +5,7 @@ class MemoryStore {
   }
 
   incr (key) {
-    var counter = this.hits.get(key) || 0
+    let counter = this.hits.get(key) || 0
     counter++
     this.hits.set(key, counter)
     return counter

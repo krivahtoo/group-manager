@@ -5,7 +5,7 @@ const env = process.env
 Object.keys(env)
   .filter(key => key.endsWith('_ADMIN'))
   .reduce((_obj, key) => {
-    admins.push(raw[key])
+    return admins.push(env[key])
   }, {})
 
 module.exports = {
