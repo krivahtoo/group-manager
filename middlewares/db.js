@@ -27,22 +27,10 @@ module.exports = (bot) => async (ctx, next) => {
         if (user && user.id) {
           debug('User was already created')
 
-          let bots = JSON.parse(user.bots)
-
-          if (Array.isArray(bots)) {
-            if (!bots.includes(bot.name)) {
-              bots.push(bot.name)
-            }
-          } else {
-            bots = [bot.name]
-          }
-          from.bots = JSON.stringify(bots)
-
           return update(user, from)
         } else {
           debug('Saving a new user.')
           from.banned = false
-          from.bots = JSON.stringify([bot.name])
           const newUser = new User(from)
           newUser.save()
           return newUser
