@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     title: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     username: {
       type: DataTypes.STRING
@@ -18,19 +19,19 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING
     },
+    inviteLink: {
+      type: DataTypes.STRING
+    },
     photo: {
       type: DataTypes.JSON
     },
-    maxWords: {
-      type: DataTypes.INTEGER
-    },
-    minSubs: {
-      type: DataTypes.INTEGER
+    admins: {
+      type: DataTypes.JSON
     },
     status: {
       type: DataTypes.STRING
     },
-    data: {
+    settings: {
       type: DataTypes.JSON
     }
   }, {

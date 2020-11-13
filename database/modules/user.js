@@ -25,9 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     banned: {
       type: DataTypes.BOOLEAN
     },
-    bots: {
-      type: DataTypes.JSON
-    },
     data: {
       type: DataTypes.JSON
     }
