@@ -1,6 +1,6 @@
 {
   "name": "group-manager",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A bot to help group admins manage their groups",
   "main": "index.js",
   "repository": "https://github.com/krivahtoo/group-manager",
