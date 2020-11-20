@@ -9,7 +9,7 @@ const data = {
     return ctx.replyWithMarkdown(
       `*${bot.name}*\n` +
       `Version: _${pkg.version}_\n` +
-      `${bot.description || pkg.description}\n\n` +
+      `${ctx.i18n.t(bot.description)}\n\n` +
       '[Source Code](https://github.com/krivahtoo/group-manager)'
     )
   }

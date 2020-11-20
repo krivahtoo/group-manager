@@ -57,6 +57,8 @@ class Context {
 
   t (text, options = {}) {
     debug(`Translating: '${text}'`)
+    // We can't translate normal text
+    if (text.includes(' ')) return text
     return TemplateEngine(
       text.split('.').reduce((acc, key) => acc && acc[key], this.data),
       options
