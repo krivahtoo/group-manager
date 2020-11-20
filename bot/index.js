@@ -189,10 +189,10 @@ class Bot {
             case 'action':
               this.bot.action(...hdl.run(this))
               break
-            case 'hears':
+            case 'text':
               this.bot.hears(...hdl.run(this))
               break
-            case 'text':
+            case 'message':
               this.bot.on(...hdl.run(this))
               break
             default:

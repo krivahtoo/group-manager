@@ -7,6 +7,7 @@ const express = require('express')
 const bot = require('./bot')
 const db = require('./database')
 const commands = require('./commands')
+const handlers = require('./handlers')
 const {
   errorHandler
 } = require('./helpers')
@@ -37,7 +38,8 @@ bot(
     name: 'Group Manager',
     description: 'A bot to help group admins manage their groups'
   },
-  commands
+  commands,
+  handlers
 ).init().then(async bt => {
   bt.setDb(db)
   app.use(await bt.callback())
