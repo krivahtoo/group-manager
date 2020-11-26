@@ -62,7 +62,7 @@ class Bot {
         } else { // if (ctx.updateType === 'inline_query') {
           chatInstance = ctx.from.id
         }
-        return `${this.name.toLowerCase()}:${chatInstance}:${ctx.from.id}`
+        return `${chatInstance}:${ctx.from.id}`
       }
     })
     // Just in case ;-)
@@ -139,7 +139,7 @@ class Bot {
       this.data.api = process.env.BOT_TOKEN
     }
     if (/[0-9]{9}:[a-zA-Z0-9_-]{35}/i.test(this.data.api)) {
-      debug('Setting up bot: ', this.name)
+      debug('Setting up bot')
       this.bot = new Telegraf(
         this.data.api,
         {
