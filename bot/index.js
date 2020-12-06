@@ -50,20 +50,7 @@ class Bot {
     this.handlers = [...handlers]
     this.widgets = [...widgets]
     this.session = new LocalSession({
-      storage: LocalSession.storageMemory,
-      getSessionKey: (ctx) => {
-        if (!ctx.from) return // should never happen
-
-        let chatInstance = ctx.from.id
-        if (ctx.chat) {
-          chatInstance = ctx.chat.id
-        } else if (ctx.updateType === 'callback_query') {
-          chatInstance = ctx.callbackQuery.chat_instance
-        } else { // if (ctx.updateType === 'inline_query') {
-          chatInstance = ctx.from.id
-        }
-        return `${chatInstance}:${ctx.from.id}`
-      }
+      storage: LocalSession.storageMemory
     })
     // Just in case ;-)
     try {

@@ -5,7 +5,7 @@ const opts = {
   type: 'message',
   run: (bot) => [
     [
-      // TODO handled by welcome handler
+      // TODO new_chat_members handled by welcome handler
       'new_chat_members',
       'new_chat_photo',
       'new_chat_title',

@@ -43,7 +43,7 @@ bot(
 ).init().then(async bt => {
   bt.setDb(db)
   app.use(await bt.callback())
-})
+}).catch(errorHandler)
 
 app.listen(PORT, () => {
   debug(`Bot listening on ${URL} 0n ${PORT}`)
