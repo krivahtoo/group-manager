@@ -11,3 +11,43 @@
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/krivahtoo/group-manager/telegraf)
 
 Group Manager is a bot to help group manage their groups
+
+## Preriquisites
+
+- Node.js
+- yarn
+- ngrok (optional - running locally)
+
+## Running
+
+Clone this project
+
+```sh
+git clone https://github.com/krivahtoo/group-manager.git
+```
+
+Install node dependencies using yarn
+
+```sh
+yarn
+```
+
+Start ngrok on port 3000 and copy the url.
+
+```sh
+ngrok http 3000
+```
+
+Create `.env` file and add
+
+```ini
+BOT_TOKEN="Your : token here...."
+PORT=3000
+URL='xxxxx.ngrok.io'
+```
+
+Start your bot
+
+```sh
+yarn dev
+```
