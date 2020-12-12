@@ -1,4 +1,7 @@
 const Handler = require('./base')
+const {
+  errorHandler
+} = require('../helpers')
 
 const opts = {
   name: 'service',
@@ -12,7 +15,20 @@ const opts = {
       'left_chat_member',
       'delete_chat_photo'
     ],
-    async (ctx) => {}
+    async (ctx) => {
+      ctx.database.Group.findByPk(ctx.chat.id)
+        .then((result) => {
+          if (result && result.settings) {
+            let settings = result.settings
+            if (typeof settings !== 'object') {
+              settings = JSON.parse(settings)
+            }
+            if (settings.deleteService) {
+              ctx.deleteMessage(ctx.massage.massage_id)
+            }
+          }
+        }).catch(errorHandler)
+    }
   ]
 }
 

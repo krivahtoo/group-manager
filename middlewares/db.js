@@ -41,20 +41,6 @@ module.exports = (bot) => async (ctx, next) => {
   }
   if (ctx.chat && (ctx.chat.type === 'supergroup' || ctx.chat.type === 'group')) {
     const chat = keysToCamel(ctx.chat)
-    let subs
-
-    const reg = /^\|([0-9]+)(k*)\+\|/
-    if (reg.test(chat.title)) {
-      const match = reg.exec(chat.title)
-      subs = match[1]
-      if (match[2] && match[2] === 'k') {
-        subs = `${subs}000`
-      }
-      subs = Number(subs)
-    } else {
-      subs = 0
-    }
-    chat.minSubs = subs
 
     const grp = await Group
       .findByPk(Number(chat.id))
@@ -63,7 +49,6 @@ module.exports = (bot) => async (ctx, next) => {
           return update(group, chat)
         } else {
           debug('Saving a new group')
-          chat.maxWords = 5
           const newGrp = new Group(chat)
           newGrp.save()
           return newGrp
