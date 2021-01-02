@@ -18,6 +18,7 @@ const {
 
 const app = express()
 
+// Connect to our database
 db.sequelize
   .authenticate()
   .then(() => {
@@ -28,6 +29,7 @@ db.sequelize
     debug(err)
   })
 
+// Create tables if not already created
 db.sequelize
   .sync()
   .then(() => debug('Initialized database'))
@@ -38,9 +40,13 @@ bot(
     name: 'Group Manager',
     description: 'A bot to help group admins manage their groups'
   },
+  // All our commands
   commands,
+  // All our handlers
   handlers
+  // All our widgets
 ).init().then(async bt => {
+  // Setup our database object
   bt.setDb(db)
   app.use(await bt.callback())
 }).catch(errorHandler)

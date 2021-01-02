@@ -2,6 +2,7 @@ const admins = []
 
 const env = process.env
 
+// get all values with _ADMIN prefix
 Object.keys(env)
   .filter(key => key.endsWith('_ADMIN'))
   .reduce((_obj, key) => {
