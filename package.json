@@ -17,7 +17,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "debug": "^4.2.0",
+    "debug": "^4.3.1",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
