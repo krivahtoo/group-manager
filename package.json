@@ -23,7 +23,7 @@
     "moment": "^2.29.1",
     "numeral": "^2.0.6",
     "pg": "^8.5.1",
-    "sequelize": "^6.5.0",
+    "sequelize": "^6.5.1",
     "telegraf": "^3.38.0",
     "telegraf-inline-menu": "^5.3.0",
     "telegraf-session-local": "^2.0.0",
