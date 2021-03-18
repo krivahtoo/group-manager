@@ -16,9 +16,13 @@ Group Manager is a bot to help group manage their groups
 
 - Node.js
 - yarn
-- ngrok (optional - running locally)
+- [ngrok](https://ngrok.com) (optional - running locally)
 
 ## Running
+
+### Development
+
+> This assumes that you have ngrok setup on your system
 
 Clone this project
 
@@ -44,10 +48,31 @@ Create `.env` file and add
 BOT_TOKEN="Your : token here...."
 PORT=3000
 URL='xxxxx.ngrok.io'
+
+# Comma separated admin ids
+ADMINS=182383,1234455
 ```
 
 Start your bot
 
 ```sh
 yarn dev
+```
+
+### Production
+
+The following env variables are required for production
+
+```
+BOT_TOKEN="Your : token here...."
+PORT=3000
+
+# Comma separated admin ids
+ADMINS=182383,1234455
+```
+
+Starting your bot
+
+```sh
+yarn start
 ```
