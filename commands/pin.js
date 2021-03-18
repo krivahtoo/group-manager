@@ -13,7 +13,7 @@ const data = {
     } else if (ctx.command.args && ctx.command.args[0]) {
       messageId = ctx.command.args[0]
     } else {
-      return ctx.reply('Please reply to a message you want to pin or pass the message id')
+      return ctx.reply(ctx.i18n.t('errors.message_required'))
     }
     return ctx.pinChatMessage(messageId)
   }

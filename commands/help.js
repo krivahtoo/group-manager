@@ -1,8 +1,5 @@
 const Command = require('./base')
-const {
-  escapeMarkdown,
-  capFirst
-} = require('../helpers')
+const { escapeMarkdown, capFirst } = require('../helpers')
 
 const data = {
   name: 'help',
@@ -26,19 +23,20 @@ const data = {
         }
       }
       if (cmd) {
-        text =
-          `*${capFirst(cmd.name)} Command*\n`
+        text = `*${capFirst(cmd.name)} Command*\n`
 
         if (cmd.alias.length > 0) {
           text += `Alias: ${cmd.alias.join(', ')}\n`
         }
 
-        text +=
-          `Version: _${cmd.version}_\n` +
-          `Usage: /${cmd.name} ${escapeMarkdown(cmd.usage)}\n` +
-          `Description: ${escapeMarkdown(cmd.description)}\n`
+        text += ctx.i18n.t('commands.help.command', {
+          version: cmd.version,
+          name: cmd.name,
+          usage: escapeMarkdown(cmd.usage),
+          description: escapeMarkdown(cmd.description)
+        })
       } else {
-        text = 'Command not found\n'
+        text = ctx.i18n.t('errors.unavailable')
       }
     } else {
       text += '*Available Commands*\n'
@@ -46,16 +44,20 @@ const data = {
 
       for (const cmd of bot.commands) {
         if (cmd.isAdmin()) {
-          cmdText += `/${cmd.name} ${escapeMarkdown(cmd.usage)} - ${escapeMarkdown(cmd.description)}\n`
+          cmdText += `/${cmd.name} ${escapeMarkdown(
+            cmd.usage
+          )} - ${escapeMarkdown(cmd.description)}\n`
         } else {
-          text += `/${cmd.name} ${escapeMarkdown(cmd.usage)} - ${escapeMarkdown(cmd.description)}\n`
+          text += `/${cmd.name} ${escapeMarkdown(cmd.usage)} - ${escapeMarkdown(
+            cmd.description
+          )}\n`
         }
       }
 
       if (ctx.admin) {
         text += cmdText
       }
-      text += '\nUse /help `command` to get more help on a command\n'
+      text += ctx.i18n.t('errors.use_help')
     }
     return ctx.replyWithMarkdown(text)
   }

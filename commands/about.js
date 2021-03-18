@@ -7,10 +7,11 @@ const data = {
   run: (bot) => (ctx) => {
     const pkg = require('../package.json')
     return ctx.replyWithMarkdown(
-      `*${bot.name}*\n` +
-      `Version: _${pkg.version}_\n` +
-      `${ctx.i18n.t(bot.description)}\n\n` +
-      '[Source Code](https://github.com/krivahtoo/group-manager)'
+      ctx.i18n.t('about', {
+        name: bot.name,
+        version: pkg.version,
+        description: ctx.i18n.t('description')
+      })
     )
   }
 }

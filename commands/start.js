@@ -5,11 +5,11 @@ const data = {
   version: '1.1.0',
   description: 'Start the bot',
   run: (bot) => (ctx) => {
-    const pkg = require('../package.json')
     return ctx.replyWithMarkdown(
-      `Hi, *${ctx.from.first_name}*\n` +
-      `${bot.description || pkg.description}\n\n` +
-      'Use /help for available commands'
+      ctx.i18n.t('commands.start', {
+        name: ctx.from.first_name,
+        about: ctx.i18n.t('description')
+      })
     )
   }
 }

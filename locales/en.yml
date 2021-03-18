@@ -1,6 +1,36 @@
 lang: English (🇬🇧 GB)
 
-about: |
-  A bot to help group admins manage their groups
+name: Group Manager Bot
+
+description: A bot to help group admins manage their groups
 
 dev: 🚧 Command under development. 🚧
+
+errors:
+  message_required: Please reply to a message you want to pin or pass the message id
+  user_required: Please reply to a message of user you want to ban or pass the user id
+  use_help: \nUse /help `command` to get more help on a command
+  unavailable: Command not found\n
+
+commands:
+  about: |
+    *#{name}*
+    Version: _#{version}_
+    #{about}
+
+    [🧾 Source Code](https://github.com/krivahtoo/group-manager)
+
+  start: |
+    Hi *#{name}*, ☺
+
+    #{about}
+
+    Use /help for available commands
+
+  help:
+    command: |
+      Version: _#{version}_
+      Usage: /#{name} #{usage}
+      Description: #{description}
+
+usage: 'Usage: /#{command} #{usage}'

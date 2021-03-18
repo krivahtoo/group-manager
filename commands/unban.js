@@ -12,7 +12,9 @@ const data = {
     } else if (ctx.command.args && ctx.command.args[0]) {
       userId = ctx.command.args[0]
     } else {
-      return ctx.reply('Usage: /unban [user-id] or reply', { reply_to_message_id: ctx.message.message_id })
+      return ctx.reply(ctx.i18n.t('usage', { command: 'unban', usage: '[user id] or reply' }), {
+        reply_to_message_id: ctx.message.message_id
+      })
     }
     return ctx.unbanChatMember(userId)
   }
