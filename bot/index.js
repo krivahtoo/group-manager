@@ -89,6 +89,17 @@ class Bot {
     return commands
   }
 
+  ownerCommands () {
+    const commands = []
+    for (let i = 0; i < this.commands.length; i++) {
+      const command = this.commands[i]
+      if (command.isOwner()) {
+        commands.push(command.name)
+      }
+    }
+    return commands
+  }
+
   allCommands () {
     const commands = []
     for (let i = 0; i < this.commands.length; i++) {

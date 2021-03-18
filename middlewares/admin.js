@@ -6,7 +6,7 @@ const { admins } = require('../config')
 module.exports = (bot) => async (ctx, next) => {
   if (ctx.from) {
     let admin = false
-    admin = admins.includes(ctx.from.id)
+    admin = admins.includes(ctx.from.id) ? 'owner' : null
     if (ctx.chat && (ctx.chat.type === 'supergroup' || ctx.chat.type === 'group') && !admin) {
       const status = ['administrator', 'creator']
       const user = await ctx.getChatMember(ctx.from.id)

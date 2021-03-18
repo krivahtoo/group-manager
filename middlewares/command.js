@@ -2,6 +2,7 @@ const debug = require('debug')('middleware:command')
 
 module.exports = (bot) => (ctx, next) => {
   const adminCommands = bot.admin()
+  const ownerCommands = bot.ownerCommands()
   ctx.command = {}
   if (ctx.updateType === 'message' && ctx.updateSubTypes[0] === 'text') {
     const text = ctx.update.message.text
@@ -21,6 +22,13 @@ module.exports = (bot) => (ctx, next) => {
             }
           }
           if (adminCommands.includes(command) && !ctx.admin) {
+            return ctx.reply('Command unavailable').then(_v => {
+              if (ctx.command && ctx.chat.type === 'supergroup') {
+                ctx.deleteMessage()
+              }
+            })
+          }
+          if (ownerCommands.includes(command) && ctx.admin !== 'owner') {
             return ctx.reply('Command unavailable').then(_v => {
               if (ctx.command && ctx.chat.type === 'supergroup') {
                 ctx.deleteMessage()

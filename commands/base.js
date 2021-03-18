@@ -22,8 +22,12 @@ class Command {
   }
 
   isAdmin () {
-    return this.opts.admin
+    return (!!this.opts.admin && this.opts.admin !== 'owner')
+  }
+
+  isOwner () {
+    return this.opts.admin === 'owner'
   }
 }
 
-module.exports = (opts) => (new Command(opts))
+module.exports = (opts) => new Command(opts)
