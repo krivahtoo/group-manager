@@ -2819,10 +2819,10 @@ telegraf-inline-menu@^5.3.0:
   dependencies:
     typegram "^2.2.2"
 
-telegraf-session-local@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/telegraf-session-local/-/telegraf-session-local-2.0.0.tgz#014d854757fa72a74c74a6f5c7031a623d2eaead"
-  integrity sha512-EOcKh5vEn7wq+9zyCQwud8RU04QhWGGq939lyr1UhGeeCVulSYbU94Q02itQ19nSwUbyMvX1Pf7hZUd3MZCIiA==
+telegraf-session-local@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/telegraf-session-local/-/telegraf-session-local-2.1.0.tgz#f1a86a44a2e59fb635a2729c48c6a9331327263a"
+  integrity sha512-HaJji7j0XKMwNGxaennwttracTG8LDwImiB4PAPUz+/1e4HlyR/c6qbHRecgWbFwJDc+om/Rb2BRNRlN/sd7EA==
   dependencies:
     "@types/lowdb" "^1.0.9"
     lowdb "^1.0.0"
