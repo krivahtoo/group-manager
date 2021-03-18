@@ -1,7 +1,7 @@
 class Command {
   constructor (opts = {}) {
     const options = {
-      alias: null,
+      alias: [],
       admin: false,
       name: 'command',
       usage: '',

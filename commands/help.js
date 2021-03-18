@@ -27,8 +27,13 @@ const data = {
       }
       if (cmd) {
         text =
-          `*${capFirst(cmd.name)} Command*\n` +
-          `Alias: ${cmd.alias.join(', ')}` +
+          `*${capFirst(cmd.name)} Command*\n`
+
+        if (cmd.alias.length > 0) {
+          text += `Alias: ${cmd.alias.join(', ')}\n`
+        }
+
+        text +=
           `Version: _${cmd.version}_\n` +
           `Usage: /${cmd.name} ${escapeMarkdown(cmd.usage)}\n` +
           `Description: ${escapeMarkdown(cmd.description)}\n`

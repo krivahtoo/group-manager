@@ -1,13 +1,11 @@
 const admins = []
 
-const env = process.env
+const env = process.env.ADMINS
 
-// get all values with _ADMIN prefix
-Object.keys(env)
-  .filter(key => key.endsWith('_ADMIN'))
-  .reduce((_obj, key) => {
-    return admins.push(env[key])
-  }, {})
+// get all admins on ADMINS
+env.split(',').forEach(val => {
+  admins.push(parseInt(val))
+})
 
 module.exports = {
   ratelimit: {
@@ -18,7 +16,7 @@ module.exports = {
         if (ctx.admin || ctx.updateType !== 'message') {
           return next()
         }
-        return ctx.reply('😠 Do not spam!!')
+        return ctx.reply('\u{1F975} Do not spam!!')
       }
     }
   },
