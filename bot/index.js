@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config()
 }
-const debug = require('debug')('bots:base')
+const debug = require('debug')('bot:base')
 const Telegraf = require('telegraf')
 const LocalSession = require('telegraf-session-local')
 const {
@@ -12,7 +12,8 @@ const {
   Stage
 } = Telegraf
 const {
-  URL
+  URL,
+  BOT_TOKEN
 } = process.env
 const {
   errorHandler
@@ -134,7 +135,7 @@ class Bot {
 
   init () {
     if (this.data.api === '') {
-      this.data.api = process.env.BOT_TOKEN
+      this.data.api = BOT_TOKEN
     }
     if (/[0-9]{9}:[a-zA-Z0-9_-]{35}/i.test(this.data.api)) {
       debug('Setting up bot')

@@ -7,7 +7,7 @@ class Command {
       usage: '',
       version: '0.1.0',
       description: 'A simple command',
-      run: (bot) => ({ reply }) => reply('🚧 Command under development. 🚧')
+      run: (bot) => ({ reply, i18n }) => reply(i18n.t('dev'))
     }
     this.opts = Object.assign(options, opts)
     this.alias = this.opts.alias

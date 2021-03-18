@@ -9,7 +9,7 @@ const {
 class I18n {
   constructor (opts = {}) {
     const defaultOpts = {
-      locale: 'en'
+      locale: process.env.DEFAULT_LANG || 'en'
     }
     if (!opts.path) {
       throw new Error('You must specify locales path.')
