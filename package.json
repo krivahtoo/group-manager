@@ -24,8 +24,8 @@
     "numeral": "^2.0.6",
     "pg": "^8.5.1",
     "sequelize": "^6.6.2",
-    "telegraf": "^3.38.0",
-    "telegraf-inline-menu": "^5.3.0",
+    "telegraf": "^4.3.0",
+    "telegraf-inline-menu": "^6.2.1",
     "telegraf-session-local": "^2.1.0",
     "yaml": "^1.10.2"
   },
