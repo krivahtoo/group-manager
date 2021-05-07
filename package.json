@@ -22,7 +22,7 @@
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
     "numeral": "^2.0.6",
-    "pg": "^8.5.1",
+    "pg": "^8.6.0",
     "sequelize": "^6.6.2",
     "telegraf": "^3.38.0",
     "telegraf-inline-menu": "^5.3.0",
