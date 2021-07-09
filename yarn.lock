@@ -2827,22 +2827,17 @@ telegraf-session-local@^2.1.0:
     "@types/lowdb" "^1.0.9"
     lowdb "^1.0.0"
 
-telegraf@^3.38.0:
-  version "3.38.0"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.38.0.tgz#745b447547a8e6cdb626055e4d616058aaae0759"
-  integrity sha512-va4VlrKWp64JrowFoZX/NPzzA6q38kvaIukVXOWFO1V+jR1G8+hCfgJy4TX8Z3rwLJzwaBEet1QhikHDRZWl3A==
+telegraf@^3.39.0:
+  version "3.39.0"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.39.0.tgz#32a7ed464c80802fe3177619d2a9c53413487850"
+  integrity sha512-6u5UyW2KpMS/hwC4DKLGlicK/rVSYCahPFgF14ioP6BzwcDwQlciHCB/oWguvxLJaYGrvY6crzLHfjupFTBPXw==
   dependencies:
     debug "^4.0.1"
     minimist "^1.2.0"
     module-alias "^2.2.2"
     node-fetch "^2.2.0"
     sandwich-stream "^2.0.1"
-    telegram-typings "^3.6.0"
-
-telegram-typings@^3.6.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/telegram-typings/-/telegram-typings-3.6.1.tgz#1288d547f8694b61f1c01c2993e295f3114d9e25"
-  integrity sha512-njVv1EAhIZnmQVLocZEADYUyqA1WIXuVcDYlsp+mXua/XB0pxx+PKtMSPeZ/EE4wPWTw9h/hA9ASTT6yQelkiw==
+    typegram "^3.1.5"
 
 term-size@^2.1.0:
   version "2.2.1"
@@ -2949,6 +2944,11 @@ typegram@^2.2.2:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/typegram/-/typegram-2.3.1.tgz#fe9c1be179ee51579766c7292e94bdaa8f0c2360"
   integrity sha512-gVAX0SrMcb34DBJUrn4UCB2APb0HfHx/S4YpMK7Ejk+g6U8XErdlDA8N6dkgNAT7DnzX8xDhBPhDdjjTmfT4dA==
+
+typegram@^3.1.5:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/typegram/-/typegram-3.4.1.tgz#078fdfb148f9a75bbbbd764a2307c9819d9eaf2f"
+  integrity sha512-O3HT/D46tsiIX1Y83gGF6sFoJiEITcqM5S8l8Iz9eyjDvarXFzUQ4mNoHZHoJ1JXlokB17GJk/vOT7Nx+TcpNA==
 
 undefsafe@^2.0.3:
   version "2.0.3"
