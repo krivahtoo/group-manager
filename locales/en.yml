@@ -16,7 +16,7 @@ commands:
   about: |
     *#{name}*
     Version: _#{version}_
-    #{about}
+    #{description}
 
     [🧾 Source Code](https://github.com/krivahtoo/group-manager)
 

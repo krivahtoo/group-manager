@@ -1,5 +1,5 @@
 module.exports = (
-  html,
+  text,
   options = {},
   d = {
     start: '#{',
@@ -14,17 +14,17 @@ module.exports = (
   const add = (line, js) => {
     js
       ? (code += line.match(reExp) ? `${line} ` : `r.push(${line});`)
-      : (code += line !== '' ? `r.push("${line.replace(/"/g, '\\\\"')}"); ` : '')
+      : (code += line !== '' ? `r.push("${line.replace(/"/g, '\\\\"').replace(/\n/g, '\\n')}"); ` : '')
     return add
   }
   for (const key in options) {
     code += ` const ${key} = this.${key};`
   }
-  while ((match = re.exec(html)) !== null) {
-    add(html.slice(cursor, match.index))(match[1], true)
+  while ((match = re.exec(text)) !== null) {
+    add(text.slice(cursor, match.index))(match[1], true)
     cursor = match.index + match[0].length
   }
-  add(html.substr(cursor, html.length - cursor))
+  add(text.substr(cursor, text.length - cursor))
   code += 'return r.join("");'
 
   // eslint-disable-next-line no-new-func

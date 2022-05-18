@@ -7,7 +7,7 @@ const data = {
   run: (bot) => (ctx) => {
     const pkg = require('../package.json')
     return ctx.replyWithMarkdown(
-      ctx.i18n.t('about', {
+      ctx.i18n.t('commands.about', {
         name: bot.name,
         version: pkg.version,
         description: ctx.i18n.t('description')
