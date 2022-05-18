@@ -6,6 +6,13 @@ updates:
     interval: daily
     time: "02:00"
   open-pull-requests-limit: 10
+  reviewers:
+    - krivahtoo
+  assignees:
+    - krivahtoo
+  commit-message:
+    prefix: build
+    prefix-development: chore
   ignore:
   - dependency-name: eslint
     versions:
