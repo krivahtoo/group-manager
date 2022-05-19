@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node"
+    "allowJs": true,
+    "checkJs": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules"]
 }

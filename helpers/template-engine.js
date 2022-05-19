@@ -1,12 +1,12 @@
 module.exports = (
   text,
-  options = {},
-  d = {
+  data = {},
+  delim = {
     start: '#{',
     end: '}'
   }
 ) => {
-  const re = new RegExp(`${d.start}([^${d.end}]+)?${d.end}`, 'g')
+  const re = new RegExp(`${delim.start}([^${delim.end}]+)?${delim.end}`, 'g')
   const reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g
   let code = 'const r=[]; '
   let cursor = 0
@@ -17,7 +17,7 @@ module.exports = (
       : (code += line !== '' ? `r.push("${line.replace(/"/g, '\\\\"').replace(/\n/g, '\\n')}"); ` : '')
     return add
   }
-  for (const key in options) {
+  for (const key in data) {
     code += ` const ${key} = this.${key};`
   }
   while ((match = re.exec(text)) !== null) {
@@ -28,5 +28,5 @@ module.exports = (
   code += 'return r.join("");'
 
   // eslint-disable-next-line no-new-func
-  return new Function(code).apply(options)
+  return new Function(code).apply(data)
 }

@@ -7,7 +7,7 @@ const data = {
   version: '1.1.1',
   description: 'Show help',
   run: (bot) => async (ctx) => {
-    await ctx.tg.sendChatAction(ctx.from.id, 'typing')
+    await ctx.replyWithChatAction('typing')
     let txt
 
     if (ctx.command.args) {
@@ -16,6 +16,7 @@ const data = {
 
     let text = ''
     if (txt) {
+      /** @type {boolean | Object} */
       let cmd = false
       for (const command of bot.commands) {
         if (command.name === txt) {
@@ -40,11 +41,11 @@ const data = {
       }
     } else {
       text += '*Available Commands*\n'
-      let cmdText = '\n*Admin Commands*\n'
+      let adminCmds = '\n*Admin Commands*\n'
 
       for (const cmd of bot.commands) {
         if (cmd.isAdmin()) {
-          cmdText += `/${cmd.name} ${escapeMarkdown(
+          adminCmds += `/${cmd.name} ${escapeMarkdown(
             cmd.usage
           )} - ${escapeMarkdown(cmd.description)}\n`
         } else {
@@ -55,7 +56,7 @@ const data = {
       }
 
       if (ctx.admin) {
-        text += cmdText
+        text += adminCmds
       }
       text += ctx.i18n.t('errors.use_help')
     }

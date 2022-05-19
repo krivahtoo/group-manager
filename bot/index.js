@@ -45,7 +45,16 @@ class Bot {
       username: '',
       description: 'My cool bot'
     }
+    /**
+      * @typedef {object} BotInfo
+      * @property {string} api
+      * @property {string} name
+      * @property {string} username
+      * @property {string} description
+      */
+    /** @type {BotInfo} */
     this.data = Object.assign(defaultData, data)
+    /** @type {import('telegraf').Telegraf} */
     this.bot = null
     this.commands = [...commands]
     this.handlers = [...handlers]
@@ -110,11 +119,13 @@ class Bot {
     return commands
   }
 
+  /** @param {import('../commands/base').Command} cmd */
   addCommand (cmd) {
     this.commands.push(cmd)
     return this
   }
 
+  /** @param {import('../handlers/base').Handler} hdl */
   addHandler (hdl) {
     this.handlers.push(hdl)
     return this
@@ -139,6 +150,7 @@ class Bot {
     }
     if (/[0-9]{9}:[a-zA-Z0-9_-]{35}/i.test(this.data.api)) {
       debug('Setting up bot')
+      // @ts-ignore
       this.bot = new Telegraf(
         this.data.api,
         {
@@ -167,6 +179,7 @@ class Bot {
       // Commands
       const cmds = []
       for (let i = 0; i < this.commands.length; i++) {
+        /** @type {import('../commands/base').Command} */
         const cmd = this.commands[i]
         if (cmd.name) {
           if (cmd.alias && Array.isArray(cmd.alias)) {
@@ -182,6 +195,7 @@ class Bot {
       // Handlers
       const hdls = []
       for (let i = 0; i < this.handlers.length; i++) {
+        /** @type {import('../handlers/base').Handler} */
         const hdl = this.handlers[i]
         if (hdl.name) {
           switch (hdl.type) {
@@ -202,6 +216,7 @@ class Bot {
       }
 
       this.bot.use(
+        // @ts-ignore
         Composer.command(
           (ctx) => ctx.reply('Sorry I didn\'t understand you.\nUse /help for available commands')
         )
@@ -209,11 +224,11 @@ class Bot {
       this.bot.use(
         Composer.privateChat(
           Composer.mount(
+            // @ts-ignore
             'text',
             (ctx) => ctx.reply('Sorry I didn\'t understand you.\nUse /help for available commands')
           )
         )
-
       )
       debug('Initialize handlers: %O', hdls)
 
@@ -230,10 +245,12 @@ class Bot {
  * Bot base class
  *
  * @param {Object} data Bot config data
- * @param {Object[]} commands Bot commands
- * @param {Object[]} handlers Bot handlers
- * @param {Object[]} widgets Bot widgets
+ * @param {Object[]} c Bot commands
+ * @param {Object[]} h Bot handlers
+ * @param {Object[]} w Bot widgets
  */
 module.exports = (data, c = [], h = [], w = []) => {
   return new Bot(data, c, h, w)
 }
+
+module.exports.Bot = Bot

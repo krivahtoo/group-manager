@@ -5,6 +5,7 @@ const { admins } = require('../config')
 
 module.exports = (bot) => async (ctx, next) => {
   if (ctx.from) {
+    /** @type {boolean | 'owner'} */
     let admin = false
     admin = admins.includes(ctx.from.id) ? 'owner' : null
     if (ctx.chat && (ctx.chat.type === 'supergroup' || ctx.chat.type === 'group') && !admin) {
