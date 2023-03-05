@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": ">=10.5.0",
+    "node": ">=16.13.0",
     "yarn": ">=1.22.0"
   },
   "scripts": {
